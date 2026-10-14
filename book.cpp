@@ -25,3 +25,26 @@ void Book::setAuthor(const string& author) {this->author = author;}
 void Book::setISBN(const string& isbn) {this->isbn = isbn;}
 void Book::setAvailability(bool available) {this->isAvailable = available;}
 void Book::setBorrowerId(const string& id) {this->borrowerId = id;}
+
+//methodes
+void Book::checkOut(const string& borrowerId) {
+    isAvailable = false;
+    this->borrowerId = borrowerId;
+}
+
+void Book::returnBook() {
+    isAvailable = true;
+    borrowerId = "";
+}
+
+string Book::toString() const {
+
+}
+
+string Book::toFileFormat() const {
+
+}
+
+void Book::fromFileFormat(const string& line) {
+    
+}
