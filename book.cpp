@@ -44,7 +44,7 @@ string Book::toString() const {
 }
 
 string Book::toFileFormat() const {
-
+    return title + "|" + author + "|" + isbn;
 }
 
 void Book::fromFileFormat(const string& line) {
