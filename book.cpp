@@ -27,9 +27,9 @@ void Book::setAvailability(bool available) {this->isAvailable = available;}
 void Book::setBorrowerId(const string& id) {this->borrowerId = id;}
 
 //methodes
-void Book::checkOut(const string& borrowerId) {
+void Book::checkOut(const string& userId) {
     isAvailable = false;
-    this->borrowerId = borrowerId;
+    borrowerId = userId;
 }
 
 void Book::returnBook() {
@@ -46,5 +46,5 @@ string Book::toFileFormat() const {
 }
 
 void Book::fromFileFormat(const string& line) {
-    
+
 }
