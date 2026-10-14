@@ -38,7 +38,9 @@ void Book::returnBook() {
 }
 
 string Book::toString() const {
-
+    return "titre: " + title + "\n" +
+    "auteur: " + author + "\n" +
+    "ISBN: " + isbn + "\n";
 }
 
 string Book::toFileFormat() const {
