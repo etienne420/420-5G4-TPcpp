@@ -44,9 +44,12 @@ string Book::toString() const {
 }
 
 string Book::toFileFormat() const {
-    return title + "|" + author + "|" + isbn;
+    return title + "|" + author + "|" + isbn + "|";
 }
 
 void Book::fromFileFormat(const string& line) {
-
+    stringstream ss(line);
+    getline(ss, title, '|');
+    getline(ss, author, '|');
+    getline(ss, isbn, '|');
 }
