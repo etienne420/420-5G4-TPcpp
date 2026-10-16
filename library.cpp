@@ -183,16 +183,22 @@ void Library::displayAllBooks()
         return;
     }
 
+    auto allBooks = getAllBooks();
+
+    sort(allBooks.begin(), allBooks.end(), [](const Book* a, const Book* b) {
+        return a->getTitle() < b-> getTitle();
+    });
+
     cout << "\n=== TOUS LES LIVRES ===\n";
-    for (size_t i = 0; i < books.size(); ++i)
+    for (size_t i = 0; i < allBooks.size(); ++i)
     {
         cout << "\nLivre " << (i + 1) << " :\n";
-        cout << books[i]->toString() << "\n";
-        if (!books[i]->getAvailability())
+        cout << allBooks[i]->toString() << "\n";
+        if (!allBooks[i]->getAvailability())
         {
-            if (findUserById(books[i]->getBorrowerId()) != nullptr)
+            if (findUserById(allBooks[i]->getBorrowerId()) != nullptr)
             {
-                cout << "Emprunté par: " << findUserById(books[i]->getBorrowerId())->getName() << "\n";
+                cout << "Emprunté par: " << findUserById(allBooks[i]->getBorrowerId())->getName() << "\n";
             }
             else
             {
