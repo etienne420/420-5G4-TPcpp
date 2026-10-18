@@ -13,6 +13,13 @@ FileManager::FileManager(const string& booksFile, const string& usersFile)
 
 // Save all library data
 bool FileManager::saveLibraryData(Library& library) {
+    const bool fichiersNonConfigures = booksFileName.empty() || usersFileName.empty();
+
+    if(fichiersNonConfigures == true){
+        cout << "Erreur : impossible de sauvegarder les donnees. Veuillez fournir un répertoire avec --data-dir.\n";
+        return false;
+    }
+
     return saveBooksToFile(library) && saveUsersToFile(library);
 }
 
@@ -133,7 +140,7 @@ void FileManager::logSave(const string& action, const string& message) {
     }
 
     const time_t now = time(nullptr);
-    const tm* localtime = localtime(&now);
+    const tm* localTime = localtime(&now);
 
     if (localTime != nullptr) {
         file << put_time(localTime, "%Y-%m-%d %H:%M:%S") << " - " << "[" << action << "] " << message << '\n';
