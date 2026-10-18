@@ -258,3 +258,4 @@ int Library::getAvailableBookCount() const
                     });
 }
 int Library::getCheckedOutBookCount() const { return getTotalBooks() - getAvailableBookCount(); }
+
